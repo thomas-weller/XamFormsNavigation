@@ -42,6 +42,11 @@ namespace CoreLib.Mvvm
             await _lazyNavigation.Value.PopAsync(animated);
         }
 
+        public async Task PopToRootAsync(bool animated)
+        {
+            await _lazyNavigation.Value.PopToRootAsync(animated);
+        }
+
         #endregion // Operations (INavigator)
 
     }

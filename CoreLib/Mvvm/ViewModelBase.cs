@@ -53,6 +53,14 @@ namespace CoreLib.Mvvm
             }
         }
 
+        public ICommand PopToRootCommand
+        {
+            get
+            {
+                return new Command(async () => await Navigator.PopToRootAsync(_animatedNavigation));
+            }
+        }
+
         #endregion // Navigation Commands
 
         #region INotifyPropertyChanged implementation
