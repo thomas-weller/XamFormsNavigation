@@ -5,6 +5,7 @@ namespace CoreLib.Mvvm
     public interface INavigator
     {
         Task PushAsync(string pageName, bool animated);
+        Task PopAsync (bool animated);
     }
 }
 
@@ -20,8 +21,7 @@ public interface INavigation
     Task PopToRootAsync ();
     Task PushModalAsync (Page page);
     Task PopModalAsync ();
-    Task PushAsync (Page page, bool animated);
-    Task PopAsync (bool animated);
+
     Task PopToRootAsync (bool animated);
     Task PushModalAsync (Page page, bool animated);
     Task PopModalAsync (bool animated);

@@ -30,23 +30,23 @@ namespace XamFormsNavigation
             //// Views
             //builder.RegisterAssemblyTypes(ThisAssembly)
             //    .AssignableTo<Page>()
-            //    .Where(v => !v.IsAssignableTo<IInstancePerLifetimeScope>())
+            //    .Where(v => !v.IsAssignableTo<ISingletonLifetimeScope>())
             //    .Named<Page>(t => t.Name)
             //    .SingleInstance();
             //builder.RegisterAssemblyTypes(ThisAssembly)
             //    .AssignableTo<Page>()
-            //    .Where(v => v.IsAssignableTo<IInstancePerLifetimeScope>())
+            //    .Where(v => v.IsAssignableTo<ISingletonLifetimeScope>())
             //    .Named<Page>(t => t.Name);
 
             //// ViewModels
             //builder.RegisterAssemblyTypes(ThisAssembly)
             //    .AssignableTo<ViewModelBase>()
-            //    .Where(v => !v.IsAssignableTo<IInstancePerLifetimeScope>())
+            //    .Where(v => !v.IsAssignableTo<ISingletonLifetimeScope>())
             //    .Named<ViewModelBase>(t => t.Name)
             //    .SingleInstance();
             //builder.RegisterAssemblyTypes(ThisAssembly)
             //    .AssignableTo<ViewModelBase>()
-            //    .Where(v => v.IsAssignableTo<IInstancePerLifetimeScope>())
+            //    .Where(v => v.IsAssignableTo<ISingletonLifetimeScope>())
             //    .Named<ViewModelBase>(t => t.Name);
 
             return builder.Build();

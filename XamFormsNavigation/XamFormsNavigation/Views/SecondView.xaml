@@ -1,24 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamFormsNavigation.Views.FirstView">
+             x:Class="XamFormsNavigation.Views.SecondView">
 
-  <StackLayout BackgroundColor="Red">
-    
-    <Label Text="{Binding Title}" 
+  <StackLayout BackgroundColor="Yellow">
+
+    <Label Text="{Binding Title}"
            HorizontalOptions="Center"
            FontSize="50"
            FontAttributes="Bold" />
     <Button Text="Next"
             Command="{Binding PushCommand}"
-            CommandParameter = "Second" />
-    
-    <Label Text="Animate Page Navigation ?" 
+            CommandParameter = "Third" />
+    <Button Text="Prev"
+            Command="{Binding PopCommand}" />
+
+    <Label Text="Animate Page Navigation ?"
            HorizontalOptions="Center"
            FontSize="30" />
     <Switch IsToggled="{Binding AnimatedNavigation, Mode=TwoWay}"
             HorizontalOptions="Center" />
-  
+
   </StackLayout>
-    
+
 </ContentPage>

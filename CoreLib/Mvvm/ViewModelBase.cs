@@ -35,9 +35,9 @@ namespace CoreLib.Mvvm
 
         #endregion // Properties
 
-        #region Commands
+        #region Navigation Commands
 
-        public ICommand NavigateCommand
+        public ICommand PushCommand
         {
             get
             {
@@ -45,7 +45,15 @@ namespace CoreLib.Mvvm
             }
         }
 
-        #endregion // Commands
+        public ICommand PopCommand
+        {
+            get
+            {
+                return new Command(async () => await Navigator.PopAsync(_animatedNavigation));
+            }
+        }
+
+        #endregion // Navigation Commands
 
         #region INotifyPropertyChanged implementation
 
