@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using FluxPlayer.Annotations;
@@ -59,6 +60,50 @@ namespace CoreLib.Mvvm
             {
                 return new Command(async () => await Navigator.PopToRootAsync(_animatedNavigation));
             }
+        }
+
+        public ICommand PushModalCommand
+        {
+            get
+            {
+                return new Command<string>(async pageName => await Navigator.PushModalAsync(pageName, _animatedNavigation));
+            }
+        }
+
+        public ICommand PopModalCommand
+        {
+            get
+            {
+                return new Command(async () => await Navigator.PopModalAsync(_animatedNavigation));
+            }
+        }
+
+        public ICommand RemovePageCommand
+        {
+            get
+            {
+                return new Command<string>(pageName => Navigator.RemovePage(pageName));
+            }
+        }
+
+        public ICommand InsertPageBeforeCommand
+        {
+            get
+            {
+                return new Command<string>(ExecuteInsertPageBeforeCommand);
+            }
+        }
+
+        private void ExecuteInsertPageBeforeCommand(string pageNames)
+        {
+            string[] pages = pageNames.Split(',').Select(s => s.Trim()).ToArray();
+
+            if (pages.Length != 2)
+            {
+                return;
+            }
+
+            Navigator.InsertPageBefore(pages[0], pages[1]);
         }
 
         #endregion // Navigation Commands

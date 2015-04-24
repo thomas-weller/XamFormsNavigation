@@ -2,7 +2,7 @@
 
 namespace XamFormsNavigation.ViewModels
 {
-    public class ThirdViewModel : ViewModelBase
+    public class FourthViewModel : ViewModelBase
     {
     }
 }

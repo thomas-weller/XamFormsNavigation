@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamFormsNavigation.ThirdView">
+             x:Class="XamFormsNavigation.Views.ThirdView">
 
   <StackLayout BackgroundColor="Green">
 
@@ -16,6 +16,8 @@
             Command="{Binding PopCommand}" />
     <Button Text="Back to Root"
             Command="{Binding PopToRootCommand}" />
+    <Button Text="View Navigation Stack"
+            Clicked="ViewNavigationStack_Clicked" />
 
     <Label Text="Animate Page Navigation ?"
            HorizontalOptions="Center"

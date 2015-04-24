@@ -51,6 +51,31 @@ namespace CoreLib.Mvvm
 
         #region Operations
 
+        public void RemovePage(string pageName)
+        {
+            Page page = _lazyNavigation.Value.NavigationStack
+                                             .FirstOrDefault(pg => pg.GetType().Name == pageName + NamingConventions.ViewEnding);
+
+            if (page != null)
+            {
+                _lazyNavigation.Value.RemovePage(page);
+            }
+        }
+
+        public void InsertPageBefore(string pageName, string pageNameBefore)
+        {
+            Page page = _viewFactory.ResolvePage(pageName);
+            Page pageBefore = _lazyNavigation.Value.NavigationStack
+                                                   .FirstOrDefault(pg => pg.GetType().Name == pageNameBefore + NamingConventions.ViewEnding);
+
+            if (page == null || pageBefore == null)
+            {
+                return;
+            }
+
+            _lazyNavigation.Value.InsertPageBefore(page, pageBefore);
+        }
+
         public async Task PushAsync(string pageName, bool animated)
         {
             Page page = _viewFactory.ResolvePage(pageName);
@@ -71,6 +96,23 @@ namespace CoreLib.Mvvm
         public async Task PopToRootAsync(bool animated)
         {
             await _lazyNavigation.Value.PopToRootAsync(animated);
+        }
+
+        public async Task PushModalAsync(string pageName, bool animated)
+        {
+            Page page = _viewFactory.ResolvePage(pageName);
+
+            if (page == null)
+            {
+                return;
+            }
+
+            await _lazyNavigation.Value.PushModalAsync(page, animated);
+        }
+
+        public async Task PopModalAsync(bool animated)
+        {
+            await _lazyNavigation.Value.PopModalAsync(animated);
         }
 
         #endregion // Operations

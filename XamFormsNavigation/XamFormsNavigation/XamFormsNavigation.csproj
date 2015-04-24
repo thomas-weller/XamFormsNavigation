@@ -36,9 +36,10 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ThirdView.xaml.cs">
+    <Compile Include="Views\ThirdView.xaml.cs">
       <DependentUpon>ThirdView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\FourthViewModel.cs" />
     <Compile Include="ViewModels\ThirdViewModel.cs" />
     <Compile Include="ViewModels\SecondViewModel.cs" />
     <Compile Include="ViewModels\FirstViewModel.cs" />
@@ -46,11 +47,15 @@
     <Compile Include="Views\FirstView.xaml.cs">
       <DependentUpon>FirstView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\FourthView.xaml.cs">
+      <DependentUpon>FourthView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InBetweenView.xaml.cs">
+      <DependentUpon>InBetweenView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SecondView.xaml.cs">
       <DependentUpon>SecondView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\InBetweenView.cs" />
-    <Compile Include="Views\FourthView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Autofac">
@@ -85,7 +90,19 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ThirdView.xaml">
+    <EmbeddedResource Include="Views\ThirdView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\FourthView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\InBetweenView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

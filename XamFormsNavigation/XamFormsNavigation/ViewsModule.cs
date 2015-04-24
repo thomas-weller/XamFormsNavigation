@@ -8,7 +8,7 @@ namespace XamFormsNavigation
     {
         /// <summary>
         /// Registers all Views (Pages) and ViewModels that reside in this
-        /// assembly such that that they are resolvable by name
+        /// assembly such that that they are resolvable by name.
         /// </summary>
         /// <remarks>
         /// Views must derive from <see cref="Page"/>, ViewModels must derive from <see cref="ViewModelBase"/>.<br/>
