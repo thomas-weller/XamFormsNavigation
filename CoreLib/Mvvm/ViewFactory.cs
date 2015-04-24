@@ -24,7 +24,7 @@ namespace CoreLib.Mvvm
 
         public Page ResolvePage(string pageName)
         {
-            string viewName = GetViewName(pageName);
+            string viewName = NamingConventions.GetViewName(pageName);
             if (!_componentContext.IsRegisteredWithName<Page>(viewName))
             {
                 return null;
@@ -32,12 +32,12 @@ namespace CoreLib.Mvvm
 
             var page = _componentContext.ResolveNamed<Page>(viewName);
 
-            string viewModelName = GetViewModelName(pageName);
+            string viewModelName = NamingConventions.GetViewModelName(pageName);
             if (_componentContext.IsRegisteredWithName<ViewModelBase>(viewModelName))
             {
                 var viewModel = _componentContext.ResolveNamed<ViewModelBase>(viewModelName);
                 viewModel.Navigator = _componentContext.Resolve<INavigator>();
-                viewModel.Title = GetViewModelTitle(pageName);
+                viewModel.Title = NamingConventions.GetViewModelTitle(pageName);
 
                 page.BindingContext = viewModel;
             }
@@ -46,25 +46,6 @@ namespace CoreLib.Mvvm
         }
 
         #endregion // Operations
-
-        #region Implementation
-
-        private static string GetViewName(string pageName)
-        {
-            return pageName + "View";
-        }
-
-        private static string GetViewModelName(string pageName)
-        {
-            return pageName + "ViewModel";
-        }
-
-        private static string GetViewModelTitle(string pageName)
-        {
-            return pageName;
-        }
-
-        #endregion // Implementation
 
     }
 }

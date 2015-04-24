@@ -1,10 +1,9 @@
-﻿using System.Reflection;
-using Autofac;
+﻿using Autofac;
 using Xamarin.Forms;
 
 namespace CoreLib.Mvvm
 {
-    public class MvvmModule : Autofac.Module
+    public class MvvmModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {

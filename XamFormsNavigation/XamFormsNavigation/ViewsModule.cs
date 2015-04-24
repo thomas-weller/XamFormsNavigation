@@ -1,6 +1,6 @@
 ﻿using Autofac;
-using Xamarin.Forms;
 using CoreLib.Mvvm;
+using Xamarin.Forms;
 
 namespace XamFormsNavigation
 {

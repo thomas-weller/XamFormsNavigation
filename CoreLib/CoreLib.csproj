@@ -38,6 +38,7 @@
     <Compile Include="Mvvm\INavigator.cs" />
     <Compile Include="Mvvm\IViewFactory.cs" />
     <Compile Include="Mvvm\MvvmModule.cs" />
+    <Compile Include="Mvvm\NamingConventions.cs" />
     <Compile Include="Mvvm\Navigator.cs" />
     <Compile Include="Mvvm\ViewFactory.cs" />
     <Compile Include="Mvvm\ViewModelBase.cs" />

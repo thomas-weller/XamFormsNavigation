@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -23,7 +25,31 @@ namespace CoreLib.Mvvm
 
         #endregion // Construction
 
-        #region Operations (INavigator)
+        #region Properties
+
+        public IReadOnlyList<string> NavigationStack
+        {
+            get
+            {
+                return _lazyNavigation.Value.NavigationStack
+                                            .Select(page => NamingConventions.RemoveViewOrViewModelEnding(page.GetType().Name))
+                                            .ToList();
+            }
+        }
+
+        public IReadOnlyList<string> ModalStack
+        {
+            get
+            {
+                return _lazyNavigation.Value.ModalStack
+                                            .Select(page => NamingConventions.RemoveViewOrViewModelEnding(page.GetType().Name))
+                                            .ToList();
+            }
+        }
+
+        #endregion // Properties
+
+        #region Operations
 
         public async Task PushAsync(string pageName, bool animated)
         {
@@ -47,7 +73,7 @@ namespace CoreLib.Mvvm
             await _lazyNavigation.Value.PopToRootAsync(animated);
         }
 
-        #endregion // Operations (INavigator)
+        #endregion // Operations
 
     }
 }

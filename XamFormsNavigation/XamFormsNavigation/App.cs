@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using Autofac;
+﻿using Autofac;
 using CoreLib.Mvvm;
 using Xamarin.Forms;
 
