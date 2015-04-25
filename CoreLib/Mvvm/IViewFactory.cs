@@ -4,6 +4,6 @@ namespace CoreLib.Mvvm
 {
     public interface IViewFactory
     {
-        Page ResolvePage(string pageName);
+        Page ResolvePage(string name);
     }
 }

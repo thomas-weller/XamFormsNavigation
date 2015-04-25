@@ -38,7 +38,7 @@ namespace XamFormsNavigation.WinPhone
             if (Debugger.IsAttached)
             {
                 // Display the current frame rate counters.
-                Current.Host.Settings.EnableFrameRateCounter = true;
+                //Current.Host.Settings.EnableFrameRateCounter = true;
 
                 // Show the areas of the app that are being redrawn in each frame.
                 //Application.Current.Host.Settings.EnableRedrawRegions = true;
@@ -51,7 +51,7 @@ namespace XamFormsNavigation.WinPhone
                 // the application's idle detection.
                 // Caution:- Use this under debug mode only. Application that disables user idle detection will continue to run
                 // and consume battery power when the user is not using the phone.
-                PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
+                //PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
 
         }

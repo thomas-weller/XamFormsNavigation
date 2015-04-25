@@ -2,18 +2,26 @@
 
 namespace CoreLib.Mvvm
 {
-    internal static class NamingConventions
+    public class DefaultNamingConventions : INamingConventions
     {
-        #region Constants
+        #region Properties
 
-        public const string ViewEnding = "View";
-        public const string ViewModelEnding = "ViewModel";
+        public string ViewEnding
+        {
+            get { return "View"; }
+        }
 
-        #endregion // Constants
+        public string ViewModelEnding
+        {
+            get { return "ViewModel"; }
+        }
+
+        #endregion // Properties
 
         #region Operations
 
-        public static string GetViewName(string name)
+
+        public string GetViewName(string name)
         {
             if (name == null)
             {
@@ -22,10 +30,10 @@ namespace CoreLib.Mvvm
 
             return name.EndsWith(ViewEnding)
                 ? name
-                : name + "View";
+                : name + ViewEnding;
         }
 
-        public static string GetViewModelName(string name)
+        public string GetViewModelName(string name)
         {
             if (name == null)
             {
@@ -34,15 +42,15 @@ namespace CoreLib.Mvvm
 
             return name.EndsWith(ViewModelEnding)
                 ? name
-                : name + "ViewModel";
+                : name + ViewModelEnding;
         }
 
-        public static string GetViewModelTitle(string name)
+        public string GetViewModelTitle(string name)
         {
             return name;
         }
 
-        public static string RemoveViewOrViewModelEnding(string className)
+        public string StripViewOrViewModelEnding(string className)
         {
             if (className == null)
             {

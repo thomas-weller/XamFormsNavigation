@@ -8,21 +8,14 @@ namespace CoreLib.Mvvm
         IReadOnlyList<string> NavigationStack { get; }
         IReadOnlyList<string> ModalStack { get; }
 
-        void RemovePage(string pageName);
-        void InsertPageBefore(string pageName, string pageNameBefore);
+        void RemovePage(string name);
+        void InsertPageBefore(string name, string nameBefore);
 
-        Task PushAsync(string pageName, bool animated);
+        Task PushAsync(string name, bool animated);
         Task PopAsync (bool animated);
         Task PopToRootAsync (bool animated);
 
-        Task PushModalAsync(string pageName, bool animated);
+        Task PushModalAsync(string name, bool animated);
         Task PopModalAsync (bool animated);
     }
 }
-
-/*
-public interface INavigation
-{
- * 
-}
-*/

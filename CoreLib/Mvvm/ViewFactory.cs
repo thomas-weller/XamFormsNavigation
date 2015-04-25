@@ -8,23 +8,25 @@ namespace CoreLib.Mvvm
         #region Fields
 
         private readonly IComponentContext _componentContext;
+        private readonly INamingConventions _namingConventions;
 
         #endregion // Fields
 
         #region Construction
 
-        public ViewFactory(IComponentContext componentContext)
+        public ViewFactory(IComponentContext componentContext, INamingConventions namingConventions)
         {
             _componentContext = componentContext;
+            _namingConventions = namingConventions;
         }
 
         #endregion // Construction
 
         #region Operations
 
-        public Page ResolvePage(string pageName)
+        public Page ResolvePage(string name)
         {
-            string viewName = NamingConventions.GetViewName(pageName);
+            string viewName = _namingConventions.GetViewName(name);
             if (!_componentContext.IsRegisteredWithName<Page>(viewName))
             {
                 return null;
@@ -32,12 +34,12 @@ namespace CoreLib.Mvvm
 
             var page = _componentContext.ResolveNamed<Page>(viewName);
 
-            string viewModelName = NamingConventions.GetViewModelName(pageName);
+            string viewModelName = _namingConventions.GetViewModelName(name);
             if (_componentContext.IsRegisteredWithName<ViewModelBase>(viewModelName))
             {
                 var viewModel = _componentContext.ResolveNamed<ViewModelBase>(viewModelName);
                 viewModel.Navigator = _componentContext.Resolve<INavigator>();
-                viewModel.Title = NamingConventions.GetViewModelTitle(pageName);
+                viewModel.Title = _namingConventions.GetViewModelTitle(name);
 
                 page.BindingContext = viewModel;
             }

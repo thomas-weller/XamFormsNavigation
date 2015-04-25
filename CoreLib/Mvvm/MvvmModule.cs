@@ -13,6 +13,10 @@ namespace CoreLib.Mvvm
             builder.Register(x => Application.Current.MainPage.Navigation)
                 .SingleInstance();
 
+            builder.RegisterType<DefaultNamingConventions>()
+                .As<INamingConventions>()
+                .SingleInstance();
+
             builder.RegisterType<ViewFactory>()
                 .As<IViewFactory>()
                 .SingleInstance();
@@ -20,12 +24,6 @@ namespace CoreLib.Mvvm
             builder.RegisterType<Navigator>()
                 .As<INavigator>()
                 .SingleInstance();
-
-            RegisterViewsFromCallingAssembly();
-        }
-
-        private void RegisterViewsFromCallingAssembly()
-        {
         }
     }
 }
