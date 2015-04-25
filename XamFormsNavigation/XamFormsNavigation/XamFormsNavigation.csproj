@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\StartView.cs" />
     <Compile Include="Views\ThirdView.xaml.cs">
       <DependentUpon>ThirdView.xaml</DependentUpon>
     </Compile>

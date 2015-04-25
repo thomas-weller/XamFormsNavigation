@@ -12,7 +12,7 @@ namespace XamFormsNavigation
 
             var viewFactory = container.Resolve<IViewFactory>();
 
-            Page firstPage = viewFactory.ResolvePage("First");
+            Page firstPage = viewFactory.ResolvePage("Start");
 
             MainPage = new NavigationPage(firstPage);
         }
