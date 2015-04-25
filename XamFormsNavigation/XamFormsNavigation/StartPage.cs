@@ -2,13 +2,13 @@
 using CoreLib.Mvvm;
 using Xamarin.Forms;
 
-namespace XamFormsNavigation.Views
+namespace XamFormsNavigation
 {
-    public class StartView : ContentPage
+    public class StartPage : ContentPage
     {
         private readonly IComponentContext _componentContext;
 
-        public StartView(IComponentContext componentContext)
+        public StartPage(IComponentContext componentContext)
         {
             _componentContext = componentContext;
 
